@@ -14,7 +14,6 @@ const Note = class {
 const phraseGen = function* (notes) {
     let index = 0;
     let gonnaBail = false;
-    console.log("pG", index)
     while (!gonnaBail) {
         gonnaBail = yield notes[index % notes.length]
         index++
@@ -88,13 +87,13 @@ const phrase12 = [
 
 const phrases = [
     phrase1,
-    // phrase2,
-    // phrase3,
-    // phrase4,
-    // phrase5,
-    // phrase6,
-    // phrase7,
-    // phrase8,
+    phrase2,
+    phrase3,
+    phrase4,
+    phrase5,
+    phrase6,
+    phrase7,
+    phrase8,
     // phrase9,
     // phrase10,
     // phrase11,
@@ -104,29 +103,32 @@ const phrases = [
 const score = phrases.map(phrase => new Phrase(phrase))
 //console.log(score)
 
-// function terminalTerry(maxTimes) {
-//     for (phrase of score) {
-//         console.log("X", phrase)
-//         //let notGonnaBail = true
-//         for (let i = 0; i < maxTimes; i++) {//phrase repeats
-//             phrase.notes.forEach(note => { //note of phrase
-
-//                 // while(notGonnaBail){
-//                 //     let count = 0
-//                 let playing = phrase.gen.next().value
-//                 console.log("Y", playing)
-//                 console.log("Z", note)
-//                 for (let d = 0; d < playing.duration; d++) {
-//                     console.log(playing.pitch - 60)
-//                     // }
-//                 }
-//             })
-//         }
-//     }
-
-// }
-// terminalTerry(8)
-for (let i = 0; i < 100; i++) {
-    console.log(score[0].gen.next())
+function terminalTerry(maxTimes) {
+    for (phrase of score) {
+        console.log("AND THEN", phrase)
+        //let notGonnaBail = true
+        for (let i = 0; i < maxTimes; i++) {//phrase repeats
+            let line = ""
+            phrase.notes.forEach(note => { //note of phrase
+                // while(notGonnaBail){
+                //     let count = 0
+                let playing = phrase.gen.next().value
+                // console.log("Y", playing)
+                // console.log("Z", note)
+                for (let d = 0; d < playing.duration; d++) {
+                    line += (playing.pitch - 60)
+                    // }
+                }
+            })
+            console.log(line)
+        }
+    }
 
 }
+terminalTerry(8)
+
+
+// for (let i = 0; i < 100; i++) {
+//     console.log(score[0].gen.next())
+
+// }
