@@ -27,6 +27,7 @@ const Phrase = class {
             this.notes.push(new Note(note))
         });
         this.gen = phraseGen(this.notes)
+        this.length = this.notes.length
     }
 }
 
@@ -103,9 +104,19 @@ const phrases = [
 const score = phrases.map(phrase => new Phrase(phrase))
 //console.log(score)
 
+const termTerCharMap = {
+    0: 0,
+    4: 4,
+    5: 5,
+    7: 7,
+    11: "e",
+    12: "t",
+    '-60': "$"
+}
+
 function terminalTerry(maxTimes) {
     for (phrase of score) {
-        console.log("AND THEN", phrase)
+        //console.log("AND THEN", phrase)
         //let notGonnaBail = true
         for (let i = 0; i < maxTimes; i++) {//phrase repeats
             let line = ""
@@ -116,7 +127,7 @@ function terminalTerry(maxTimes) {
                 // console.log("Y", playing)
                 // console.log("Z", note)
                 for (let d = 0; d < playing.duration; d++) {
-                    line += (playing.pitch - 60)
+                    line += termTerCharMap[playing.pitch - 60]
                     // }
                 }
             })
