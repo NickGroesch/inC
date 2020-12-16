@@ -7,42 +7,38 @@ export default class Musician {
         this.phrase = 0
         this.instrument = synth;
         this.now = uNow;
-        this.scale = .04
+        this.scale = .12;
+        this.TO = null;
 
     }
     //hasAx = function () { return this.instrument !== undefined }
 
-    doNote = function (quittingSoon) {
-        console.log(this)
-        const subject = this.score.phrases[this.phrase]
-        console.log(subject)
+    doNote = function (quittingSoon) {//might be nice to make quittingSoon finish phrase
+        if (!quittingSoon) clearTimeout(this.TO)
         const genRes = this.score.phrases[this.phrase].gen.next(quittingSoon)
-        console.log(genRes)
         if (!genRes.done) {
             const { pitch, duration } = genRes.value
-            console.log(pitch, duration)
             this.instrument.triggerAttackRelease(pitch, duration * this.scale, now())
             const scaledToMs = duration * this.scale * 1000
-            const TO = setTimeout((helper, willQuit) => {
-                console.log(this)
-                console.log(helper)
-                helper.apply(this, [willQuit])
-            }, scaledToMs,
-                this.doNote, quittingSoon);
-            console.log(TO)
+            this.TO = setTimeout(
+                (helper, willQuit) => { //params
+                    helper.apply(this, [willQuit])
+                },
+                scaledToMs,
+                this.doNote, quittingSoon); //args
         } else {
-            console.log("DONE")
+            console.log(`${this.name} is moving on from ${this.phrase}`)
             this.phrase++
         }
     }
-    repeat = function () {
-
+    repeat() {
+        //didn't need this
     }
-    printDeets = function () {
+    printDeets() {
         console.log(this)
     }
 
-    testNote = function () {
+    testNote() {
         try {
             this.instrument.triggerAttackRelease("A4", 2, now())
         } catch (e) {

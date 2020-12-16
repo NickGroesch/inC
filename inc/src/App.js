@@ -3,7 +3,7 @@ import './App.css';
 import Musician from "./components/Musician"
 import logo from "./logo.svg"
 import * as Tone from "tone"
-import { ToneAudioBuffer } from 'tone';
+
 function App() {
 
   const [myMusician, setMyMusician] = useState({ name: "nobody" })
@@ -19,14 +19,22 @@ function App() {
   //TODO add better instruments and transposition
   return (
     <div className="App">
-      <Musician name="tina" synth={new Tone.Synth().toDestination()}></Musician>
-      <Musician name="gina" synth={new Tone.PolySynth().toDestination()}></Musician>
-      <Musician name="mina" synth={new Tone.DuoSynth().toDestination()}></Musician>
-      <Musician name="lina" synth={new Tone.FMSynth().toDestination()}></Musician>
+      <Musician name="tina"
+        synth={new Tone.Synth().toDestination()}
+        transpose={0}></Musician>
+      <Musician name="gina"
+        synth={new Tone.PolySynth().toDestination()}
+        transpose={-12}></Musician>
+      <Musician name="mina"
+        synth={new Tone.DuoSynth().toDestination()}
+        transpose={24}></Musician>
+      <Musician name="lina"
+        synth={new Tone.FMSynth().toDestination()}
+        transpose={0}></Musician>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code onClick={() => startToneJs()}>src/App.js</code> and save to reload.
+          press <code onClick={() => startToneJs()}>HERE!</code> to start Tone.js
         </p>
         <a
           className="App-link"

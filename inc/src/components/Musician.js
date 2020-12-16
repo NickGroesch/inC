@@ -2,9 +2,12 @@ import { useState, useEffect, useMemo } from 'react'
 import AbstractMusician from "../utils/AbstractMusician"
 import Score from "../utils/score"
 
-export default function Musician({ name, synth }) {
+export default function Musician({ name, synth, transpose }) {
+    const [isPlaying, setIsPlaying] = useState(false)
+    const [onPhrase, setOnPhrase] = useState(0)
+    //b/c I memoize the musician in order to preserve its identity/integrity, the render phase never reconsiders it's changed property values ergo useState
     const musician = useMemo(() => {
-        return new AbstractMusician(name, synth, new Score())
+        return new AbstractMusician(name, synth, new Score(transpose))
     }, [name, synth, Score])
 
     const timeOuts = () => {
@@ -18,12 +21,12 @@ export default function Musician({ name, synth }) {
         return setTimeout(() => func(tOut), tOut)
     }
     //show phraseNum
-    return (<div css={{ width: '20%', float: 'left' }}>
-        <div onClick={() => timeOuts()}>{musician.name || "nobody"}</div>
-        <p onClick={() => musician.doNote()}>play</p>
-        <p onClick={() => musician.doNote(true)}>skip</p>
-        <p onClick={() => musician.testNote()}>test</p>
-        <p onClick={() => musician.testNote()}>repeat</p>
+    return (<div style={{ width: '20%', float: 'left' }}>
+        <div onClick={() => timeOuts()}>{musician.name || "nobody"} {musician.phrase}</div>
+        {isPlaying ?
+            <p onClick={() => { musician.doNote(true); setOnPhrase(x => x + 1) }}>prod</p> :
+            <p onClick={() => { musician.doNote(); setIsPlaying(true) }}>play</p>
+        }
     </div>
     )
 

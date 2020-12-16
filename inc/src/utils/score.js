@@ -78,22 +78,22 @@ const midiToPc = function (midiPitchNum) {
     return pClass + octave
 }
 const Note = class {
-    constructor([pitch, duration]) {
-        this.pitch = midiToPc(pitch) // null for rest
+    constructor([pitch, duration], transpose) {
+        this.pitch = midiToPc(pitch + transpose) // null for rest
         this.duration = duration
     }
     //grace in
 }
 
 const Phrase = class {
-    constructor(notes) {
+    constructor(notes, transpose) {
         this.notes = []
         notes.forEach(note => {
-            this.notes.push(new Note(note))
+            this.notes.push(new Note(note, transpose))
         });
         this.gen = phraseGen(this.notes)
         this.length = this.notes.length
     }
 }
 
-export default function Score() { this.phrases = phrases.map(phrase => new Phrase(phrase)) }
+export default function Score(transpose) { this.phrases = phrases.map(phrase => new Phrase(phrase, transpose)) }
