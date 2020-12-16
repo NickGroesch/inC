@@ -31,6 +31,7 @@ function App() {
       <Musician name="lina"
         synth={new Tone.FMSynth().toDestination()}
         transpose={0}></Musician>
+      {/* <Pit></Pit> */}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
