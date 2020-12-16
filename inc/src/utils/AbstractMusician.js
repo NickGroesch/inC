@@ -12,7 +12,7 @@ export default class Musician {
     }
     //hasAx = function () { return this.instrument !== undefined }
 
-    doNote = function (quittingSoon,) {
+    doNote = function (quittingSoon) {
         console.log(this)
         const subject = this.score.phrases[this.phrase]
         console.log(subject)
@@ -22,11 +22,12 @@ export default class Musician {
             const { pitch, duration } = genRes.value
             console.log(pitch, duration)
             this.instrument.triggerAttackRelease(pitch, duration * this.scale, now())
+            const scaledToMs = duration * this.scale * 1000
             const TO = setTimeout((helper, willQuit) => {
                 console.log(this)
                 console.log(helper)
-                helper(willQuit).apply(this)
-            }, duration * this.scale * 100,
+                helper.apply(this, [willQuit])
+            }, scaledToMs,
                 this.doNote, quittingSoon);
             console.log(TO)
         } else {
