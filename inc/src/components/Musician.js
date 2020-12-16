@@ -17,13 +17,14 @@ export default function Musician({ name, synth }) {
     const wrapInTimeOut = function (func, tOut) {
         return setTimeout(() => func(tOut), tOut)
     }
-
-    return (<>
+    //show phraseNum
+    return (<div css={{ width: '20%', float: 'left' }}>
         <div onClick={() => timeOuts()}>{musician.name || "nobody"}</div>
         <p onClick={() => musician.doNote()}>play</p>
         <p onClick={() => musician.doNote(true)}>skip</p>
         <p onClick={() => musician.testNote()}>test</p>
-    </>
+        <p onClick={() => musician.testNote()}>repeat</p>
+    </div>
     )
 
 }

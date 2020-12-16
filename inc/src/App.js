@@ -15,9 +15,14 @@ function App() {
     Tone.start()
   }
 
+  //TODO debouncing
+  //TODO add better instruments and transposition
   return (
     <div className="App">
       <Musician name="tina" synth={new Tone.Synth().toDestination()}></Musician>
+      <Musician name="gina" synth={new Tone.PolySynth().toDestination()}></Musician>
+      <Musician name="mina" synth={new Tone.DuoSynth().toDestination()}></Musician>
+      <Musician name="lina" synth={new Tone.FMSynth().toDestination()}></Musician>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
