@@ -1,6 +1,8 @@
 import { now } from "tone"
+
 export default class Musician {
-    constructor(name, score, synth, uNow) {
+    constructor(name, synth, score, uNow) {
+        this.name = name
         this.score = score
         this.phrase = 0
         this.instrument = synth;
@@ -11,11 +13,18 @@ export default class Musician {
     //hasAx = function () { return this.instrument !== undefined }
 
     doNote = function (quittingSoon,) {
-        const subject = this.score[this.phrase]
+        const subject = this.score.phrases[this.phrase]
         console.log(subject)
-        const { pitch, duration } = this.score[this.phrase].gen.next(quittingSoon).value
-        console.log(pitch, duration)
-        this.instrument.triggerAttackRelease(pitch, duration * .01, now)
+        const genRes = this.score.phrases[this.phrase].gen.next(quittingSoon)
+        console.log(genRes)
+        if (!genRes.done) {
+            const { pitch, duration } = genRes.value
+            console.log(pitch, duration)
+            this.instrument.triggerAttackRelease(pitch, duration * .01, now())
+        } else {
+            console.log("DONE")
+            this.phrase++
+        }
 
     }
     printDeets = function () {
@@ -23,7 +32,7 @@ export default class Musician {
     }
     testNote = function () {
         try {
-            this.instrument.triggerAttackRelease("A4", 10, now)
+            this.instrument.triggerAttackRelease("A4", 10, now())
         } catch (e) {
             console.error(e)
         }

@@ -2,22 +2,26 @@ import { useState, useEffect } from 'react'
 import './App.css';
 import Musician from "./components/Musician"
 import logo from "./logo.svg"
-
+import * as Tone from "tone"
+import { ToneAudioBuffer } from 'tone';
 function App() {
 
-  const doNoteTest = () => {
-    console.log('test')
-  }
+  const [myMusician, setMyMusician] = useState({ name: "nobody" })
   useEffect(() => {
-    console.log("here's tina")
+
   }, [])
+
+  const startToneJs = () => {
+    Tone.start()
+  }
 
   return (
     <div className="App">
+      <Musician name="tina" synth={new Tone.Synth().toDestination()}></Musician>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code onClick={doNoteTest}>src/App.js</code> and save to reload.
+          Edit <code onClick={() => startToneJs()}>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"

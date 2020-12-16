@@ -69,9 +69,16 @@ const phraseGen = function* (notes) {
     }
 }
 
+const midiPCMap = ["C", "Cs", "D", "Ds", "E", "F", "F#", "G", "Gs", "A", "Bb", "B"]
+
+const midiToPc = function (midiPitchNum) {
+    let pClass = midiPCMap[midiPitchNum % 12];
+    let octave = Math.floor(midiPitchNum / 12) - 1;
+    return pClass + octave
+}
 const Note = class {
     constructor([pitch, duration]) {
-        this.pitch = pitch // null for rest
+        this.pitch = midiToPc(pitch) // null for rest
         this.duration = duration
     }
     //grace in
