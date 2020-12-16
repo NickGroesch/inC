@@ -6,13 +6,14 @@ export default class Musician {
         this.score = score
         this.phrase = 0
         this.instrument = synth;
-        //this.presentPhrase;
         this.now = uNow;
+        this.scale = .04
 
     }
     //hasAx = function () { return this.instrument !== undefined }
 
     doNote = function (quittingSoon,) {
+        console.log(this)
         const subject = this.score.phrases[this.phrase]
         console.log(subject)
         const genRes = this.score.phrases[this.phrase].gen.next(quittingSoon)
@@ -20,19 +21,29 @@ export default class Musician {
         if (!genRes.done) {
             const { pitch, duration } = genRes.value
             console.log(pitch, duration)
-            this.instrument.triggerAttackRelease(pitch, duration * .01, now())
+            this.instrument.triggerAttackRelease(pitch, duration * this.scale, now())
+            const TO = setTimeout((helper, willQuit) => {
+                console.log(this)
+                console.log(helper)
+                helper(willQuit).apply(this)
+            }, duration * this.scale * 100,
+                this.doNote, quittingSoon);
+            console.log(TO)
         } else {
             console.log("DONE")
             this.phrase++
         }
+    }
+    repeat = function () {
 
     }
     printDeets = function () {
         console.log(this)
     }
+
     testNote = function () {
         try {
-            this.instrument.triggerAttackRelease("A4", 10, now())
+            this.instrument.triggerAttackRelease("A4", 2, now())
         } catch (e) {
             console.error(e)
         }

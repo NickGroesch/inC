@@ -67,6 +67,7 @@ const phraseGen = function* (notes) {
         gonnaBail = yield notes[index % notes.length]
         index++
     }
+
 }
 
 const midiPCMap = ["C", "Cs", "D", "Ds", "E", "F", "F#", "G", "Gs", "A", "Bb", "B"]
