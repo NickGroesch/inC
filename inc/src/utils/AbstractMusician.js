@@ -1,13 +1,16 @@
-import { now } from "tone"
+import { now, Gain } from "tone"
 
-export default class Musician {
+class Musician {
     constructor(name, synth, score, uNow) {
         this.name = name
         this.score = score
         this.phrase = 0
+        this.volume = .2
+        this.gainNode = new Gain(this.volume).toDestination();
         this.instrument = synth;
+        this.instrument.connect(this.gainNode)
         this.now = uNow;
-        this.scale = .12;
+        this.scale = .052;//tempo in seconds
         this.TO = null;
 
     }
@@ -31,18 +34,23 @@ export default class Musician {
             this.phrase++
         }
     }
-    repeat() {
-        //didn't need this
-    }
-    printDeets() {
-        console.log(this)
-    }
+    // repeat() {
+    //     //didn't need this
+    // }
+    // printDeets() {
+    //     console.log(this)
+    // }
 
-    testNote() {
-        try {
-            this.instrument.triggerAttackRelease("A4", 2, now())
-        } catch (e) {
-            console.error(e)
-        }
-    }
+    // testNote() {
+    //     try {
+    //         this.instrument.triggerAttackRelease("A4", 2, now())
+    //     } catch (e) {
+    //         console.error(e)
+    //     }
+    // }
 }
+    Musician.prototype.setVolume = function (gain)  {
+    this.gainNode.gain.rampTo(gain, .1)
+}
+
+export default Musician

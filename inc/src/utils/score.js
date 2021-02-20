@@ -170,15 +170,19 @@ const midiToPc = function (midiPitchNum) {
     let octave = Math.floor(midiPitchNum / 12) - 1;
     return pClass + octave
 }
-const Note = class {
-    constructor([pitch, duration], transpose) {
-        this.pitch = midiToPc(pitch + transpose) // null for rest
+class Note {
+    constructor([pitch, duration], transpose = 0) {
+        if (pitch) {
+            this.pitch = midiToPc(pitch + transpose) // null for rest
+        } else {
+            this.pitch = null//hope this fixes rests showing up as low notes in transposed
+        }
         this.duration = duration
     }
     //grace in
 }
 
-const Phrase = class {
+class Phrase {
     constructor(notes, transpose) {
         this.notes = []
         notes.forEach(note => {
