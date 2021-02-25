@@ -1,4 +1,5 @@
 let Gain = Tone.Gain
+let now = Tone.now //now must be defined before the musicians are instantated
 const bpmToMilliseconds = beatsPerMinute => beatsPerMinute
 class Musician {
     constructor(name, synth, score) {
