@@ -39,7 +39,7 @@ class Musician {
                 scaledToMs,
                 this.doNote, quittingSoon); //args
         } else {
-            //console.log(`${this.name} is moving on from ${this.phrase}`)
+            console.log(`${this.name} is moving on from ${this.phrase}`)
             this.phrase++
         }
     }

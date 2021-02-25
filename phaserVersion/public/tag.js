@@ -220,7 +220,7 @@ function greenCollision(player, green) {
     // else lina.doNote()
 }
 function blueCollision(player, blue) {
-    if (lina.ready) lina.doNote(true)
+    if (mina.ready) mina.doNote(true)
     // else lina.doNote()
 }
 
