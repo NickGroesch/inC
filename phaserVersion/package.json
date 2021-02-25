@@ -1,0 +1,21 @@
+{
+  "name": "phaserTag",
+  "version": "1.0.0",
+  "description": "",
+  "main": "phaser.js",
+  "scripts": {
+    "test": "echo \"SUCCESS: no test specified\" && exit 0",
+    "lint": "./node_modules/.bin/eslint public/tag.js --quiet"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "easy-google-oauth": "^1.0.9",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
