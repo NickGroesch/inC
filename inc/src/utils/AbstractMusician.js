@@ -5,7 +5,7 @@ class Musician {
         this.name = name
         this.score = score
         this.phrase = 0
-        this.volume = .2
+        this.volume = .15
         this.gainNode = new Gain(this.volume).toDestination();
         this.instrument = synth;
         this.instrument.connect(this.gainNode)

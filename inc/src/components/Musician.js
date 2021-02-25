@@ -4,7 +4,7 @@ import Score from "../utils/score"
 
 export default function Musician({ name, synth, transpose }) {
     const [isPlaying, setIsPlaying] = useState(false)
-    const [volume, setVolume] = useState(0) // -100<=volume reduction in db<=0
+    const [volume, setVolume] = useState(-10) // -100<=volume reduction in db<=0
     const [onPhrase, setOnPhrase] = useState(1) //1dexed for human readability
     //b/c I memoize the musician in order to preserve its identity/integrity, the render phase never reconsiders it's changed property values ergo useState
     const musician = useMemo(() => {
@@ -18,9 +18,11 @@ export default function Musician({ name, synth, transpose }) {
         }
         tOs.forEach(tO => wrapInTimeOut(printTO, tO))
     }
+
     const wrapInTimeOut = function (func, tOut) {
         return setTimeout(() => func(tOut), tOut)
     }
+
     const handleVolume = newVolume => {
         setVolume(newVolume)
         musician.setVolume(newVolume / 100)
