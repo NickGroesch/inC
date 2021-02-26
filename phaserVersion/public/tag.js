@@ -3,6 +3,7 @@ window.addEventListener('load', (event) => {
 
 
     let config = {
+        parent: 'parent',
         type: Phaser.AUTO,
         width: 800,
         height: 600,
@@ -38,7 +39,7 @@ window.addEventListener('load', (event) => {
     let platforms;
     let cursors;
 
-    let game = new Phaser.Game(config);
+    let game = new Phaser.Game(config, 'game');
 
     function preload() {
         this.load.image('sky', 'assets/sky.png');
