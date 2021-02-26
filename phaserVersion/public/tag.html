@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You are the star!</title>
+    <title>inC</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.52.0/phaser.min.js"
         integrity="sha512-2wu8HKyxH3r65DZuWEdiov7+mBVti4Kfjg9WTXNP8qitejYSBn2S+Kgi4M3ctlnA9qTDU6hyTsiqpIfFhQBY0Q=="
         crossorigin="anonymous"></script>
@@ -15,8 +15,25 @@
 </head>
 
 <body>
-    Terry Riley is the composer.
-    The star conducts the musicians by colliding with them (imagine conductor batoning musicians)
+    <div id="game"></div>
+    <div id="my-game"></div>
+    <h1> inC </h1>
+    <h2>About the Project</h2>
+    <p>*inC* is a minimalist composition by Terry Riley, where any number (Terry suggests 53) of performers of any kind
+        of instrument repeat each of 53 phrases many times as desired. In the context of covid-19 regulations
+        prohibiting performance, I am creating two UIs for a single individual to play this music.</p>
+    <h3>Composer Mode</h3>
+    <p>Composer view is a react UI where the user takes full control of starting, prodding, and mixing the musicians. I
+        eventually hope to add a backend for persisting musicians created by users.</p>
+    <h3>Phaser Game</h3>
+    If you've ever wanted conduct an ensemble of musicians, or its rough equivalent herd cats, this game is for you.
+    Presently you are a star that prods musicians to the next phrase by colliding with them. I hope to replace this stub
+    with a spritesheet of a walking conductor swinging a baton. Future additions may include pizza and beer, to attract
+    the musicians.
+    <h2>How to Play</h2>
+    <p>Press left to start Tone.js. Then collide with each player as the star to prod that player onto the next phrase.
+        Enjoy. Open the console if you want to see which phrase each musician is on. </p>
+
     <script src="/Score.js"></script>
     <script src="/AbstractMusician.js"></script>
     <script src="/tag.js"></script>
