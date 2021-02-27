@@ -27,7 +27,30 @@ window.addEventListener('load', (event) => {
     const gina = new Musician('gina', new Tone.PolySynth(), new Score(-12))
     const mina = new Musician('mina', new Tone.DuoSynth(), new Score(-24))
     const lina = new Musician('lina', new Tone.FMSynth(), new Score(-12))
-    // const theInas = [tina, gina, mina, lina]
+
+    const theInas = [tina, gina, mina, lina]
+    const $mixer = document.getElementById('mixer')
+
+    for (ina of theInas) {
+        //const fragment = document.createDocumentFragment()
+        const p = document.createElement('p')
+        p.textContent = ina.name
+        const input = document.createElement('input')
+        input.setAttribute('type', 'range')
+        input.setAttribute('min', '.005')
+        input.setAttribute('max', '.995')
+        input.setAttribute('step', '.005')
+        input.setAttribute('value', '.15')
+        input.addEventListener('input', (event) => {
+            const volume = event.target.value
+            ina.setVolume(volume)
+        })
+        p.appendChild(input)
+        $mixer.append(p)
+
+        // type="range" min="-20" max="20" value={volume} onInput={(x) => handleVolume(x.nativeEvent.target.value)
+
+    }
 
     let myDude;
     let dude;
@@ -38,8 +61,15 @@ window.addEventListener('load', (event) => {
 
     let platforms;
     let cursors;
+    document.getElementById('start').addEventListener("click", event => {
+        event.preventDefault()
+        Tone.start()
+        startGame()
+    })
 
-    let game = new Phaser.Game(config, 'game');
+    function startGame() {
+        let game = new Phaser.Game(config, 'game');
+    }
 
     function preload() {
         this.load.image('sky', 'assets/sky.png');
@@ -237,4 +267,7 @@ window.addEventListener('load', (event) => {
             }
         }
     }
+
+
+
 });
