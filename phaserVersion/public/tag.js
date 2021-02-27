@@ -37,8 +37,8 @@ window.addEventListener('load', (event) => {
         p.textContent = ina.name
         const input = document.createElement('input')
         input.setAttribute('type', 'range')
-        input.setAttribute('min', '.005')
-        input.setAttribute('max', '.995')
+        input.setAttribute('min', '.05')
+        input.setAttribute('max', '.95')
         input.setAttribute('step', '.005')
         input.setAttribute('value', '.15')
         input.addEventListener('input', (event) => {

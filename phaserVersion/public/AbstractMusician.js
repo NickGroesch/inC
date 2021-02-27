@@ -55,5 +55,7 @@ Musician.prototype.doNote = function (quittingSoon) {
 }
 
 Musician.prototype.setVolume = function (gain) {
-    this.gainNode.gain.rampTo(gain,.1)
+    console.log(typeof gain)
+    gain = parseFloat(gain)
+    this.gainNode.gain.rampTo(gain, .1)
 }
