@@ -31,34 +31,34 @@ window.addEventListener('load', (event) => {
     const theInas = [tina, gina, mina, lina]
     const $mixer = document.getElementById('mixer')
 
-    for (ina of theInas) {
-        //const fragment = document.createDocumentFragment()
-        const myP = document.createElement('p')
-        myP.textContent = ina.name
-        const myInput = document.createElement('input')
-        myInput.setAttribute('type', 'range')
-        myInput.setAttribute('min', '.05')
-        myInput.setAttribute('max', '.95')
-        myInput.setAttribute('step', '.005')
-        myInput.setAttribute('value', '.15')
-        myInput.addEventListener('input', (event) => {
-            console.log(ina)
-            const volume = event.target.value
-            ina.setVolume(volume)
-        })
-        myP.appendChild(myInput)
-        $mixer.append(myP)
-        //i am always getting the last ina 
-    }
+    // for (ina of theInas) {
+    //     //const fragment = document.createDocumentFragment()
+    //     const myP = document.createElement('p')
+    //     myP.textContent = ina.name
+    //     const myInput = document.createElement('input')
+    //     myInput.setAttribute('type', 'range')
+    //     myInput.setAttribute('min', '')
+    //     myInput.setAttribute('max', '.95')
+    //     myInput.setAttribute('step', '.005')
+    //     myInput.setAttribute('value', '.15')
+    //     myInput.addEventListener('input', (event) => {
+    //         console.log(ina)
+    //         const volume = event.target.value
+    //         ina.setVolume(volume)
+    //     })
+    //     myP.appendChild(myInput)
+    //     $mixer.append(myP)
+    //     //i am always getting the last ina 
+    // }
     theInas.forEach(ina => {
         const myP = document.createElement('p')
         myP.textContent = ina.name
         const myInput = document.createElement('input')
         myInput.setAttribute('type', 'range')
-        myInput.setAttribute('min', '.05')
-        myInput.setAttribute('max', '.95')
-        myInput.setAttribute('step', '.005')
-        myInput.setAttribute('value', '.15')
+        myInput.setAttribute('min', 0)
+        myInput.setAttribute('max', .4)
+        myInput.setAttribute('step', .005)
+        myInput.setAttribute('value', .15)
         myInput.addEventListener('input', (event) => {
             console.log(ina)
             const volume = event.target.value
