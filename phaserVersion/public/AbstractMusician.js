@@ -6,23 +6,27 @@ class Musician {
         this.name = name
         this.score = score
         this.phrase = 0
+        this.instrument = synth;
+        //this.channel = new Tone.Channel(-16).toMaster()
+        //this.instrument.connect(this.channel)
         this.volume = .15
         this.gainNode = new Gain(this.volume).toDestination();
-        this.instrument = synth;
         this.instrument.connect(this.gainNode)
         this.scale = .082;// tempo of 32nd Note in seconds
         this.TO = null;
         this.ready = true;
         this.readyTO = null;
+        this.delayProd = 2500; // how long before you can prod again
+        this.ui=null; //placeholder to send back dom updates
 
     }
 } 
 
-Musician.prototype.waitHalfASec = function () {
+Musician.prototype.notToHurry = function () {
     this.ready = false
     this.readyTO = setTimeout(() => {
         this.ready = true
-    }, 500)
+    }, this.delayProd)
     }
 
 Musician.prototype.doNote = function (quittingSoon) {
@@ -30,7 +34,7 @@ Musician.prototype.doNote = function (quittingSoon) {
     if (!quittingSoon) {
         clearTimeout(this.TO)
     } else {
-        this.waitHalfASec()
+        this.notToHurry()
     }
 
     const genRes = this.score.phrases[this.phrase].gen.next(quittingSoon)
@@ -51,5 +55,5 @@ Musician.prototype.doNote = function (quittingSoon) {
 }
 
 Musician.prototype.setVolume = function (gain) {
-    this.gainNode.gain.rampTo(gain, .1)
+    this.gainNode.gain.rampTo(gain,.1)
 }
