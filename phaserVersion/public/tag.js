@@ -33,24 +33,41 @@ window.addEventListener('load', (event) => {
 
     for (ina of theInas) {
         //const fragment = document.createDocumentFragment()
-        const p = document.createElement('p')
-        p.textContent = ina.name
-        const input = document.createElement('input')
-        input.setAttribute('type', 'range')
-        input.setAttribute('min', '.05')
-        input.setAttribute('max', '.95')
-        input.setAttribute('step', '.005')
-        input.setAttribute('value', '.15')
-        input.addEventListener('input', (event) => {
+        const myP = document.createElement('p')
+        myP.textContent = ina.name
+        const myInput = document.createElement('input')
+        myInput.setAttribute('type', 'range')
+        myInput.setAttribute('min', '.05')
+        myInput.setAttribute('max', '.95')
+        myInput.setAttribute('step', '.005')
+        myInput.setAttribute('value', '.15')
+        myInput.addEventListener('input', (event) => {
+            console.log(ina)
             const volume = event.target.value
             ina.setVolume(volume)
         })
-        p.appendChild(input)
-        $mixer.append(p)
-
-        // type="range" min="-20" max="20" value={volume} onInput={(x) => handleVolume(x.nativeEvent.target.value)
-
+        myP.appendChild(myInput)
+        $mixer.append(myP)
+        //i am always getting the last ina 
     }
+    theInas.forEach(ina => {
+        const myP = document.createElement('p')
+        myP.textContent = ina.name
+        const myInput = document.createElement('input')
+        myInput.setAttribute('type', 'range')
+        myInput.setAttribute('min', '.05')
+        myInput.setAttribute('max', '.95')
+        myInput.setAttribute('step', '.005')
+        myInput.setAttribute('value', '.15')
+        myInput.addEventListener('input', (event) => {
+            console.log(ina)
+            const volume = event.target.value
+            ina.setVolume(volume)
+        })
+        myP.appendChild(myInput)
+        $mixer.append(myP)
+    })
+
 
     let myDude;
     let dude;
