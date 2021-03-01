@@ -6,9 +6,10 @@ html, body {
     color: white;
     text-align: center;
     font-family: 'DotGothic16', sans-serif;
-}
-.container {
+  }
+  .container {
     max-width: 800px;
+    cursor: url('/assets/star.png'), auto;
 }
 button#start {
     font-family: 'DotGothic16', sans-serif;
@@ -26,6 +27,15 @@ button#start:hover {
 .underlined {
     text-decoration: underline;
 }
+ul{
+  list-style-image: url('/assets/star.png');
+  padding-left: 0;
+  
+}
+ul li {
+  list-style-position: inside;
+}
+
 /* https://stackoverflow.com/questions/18389224/how-to-style-html5-range-input-to-have-different-color-before-and-after-slider */
 
 /*Chrome*/
