@@ -62,6 +62,8 @@ window.addEventListener('load', (event) => {
         startGame()
         document.getElementById('start').style.display = 'none';
         document.getElementById('info').style.display = 'none';
+        document.getElementById('advice').style.display = 'block';
+
     })
     let unstarted = true // this flag starts musicians
 
@@ -197,6 +199,8 @@ window.addEventListener('load', (event) => {
                 lina.doNote()
                 mina.doNote()
                 unstarted = false
+                document.getElementById('advice').style.display = 'none';
+
             }
             star.setVelocityX(-100);
         }
