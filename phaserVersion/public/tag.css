@@ -27,6 +27,7 @@ button#start:hover {
 .underlined {
     text-decoration: underline;
 }
+/* these two make the li bullets less lame */
 ul{
   list-style-image: url('/assets/star.png');
   padding-left: 0;
@@ -37,7 +38,6 @@ ul li {
 }
 
 /* https://stackoverflow.com/questions/18389224/how-to-style-html5-range-input-to-have-different-color-before-and-after-slider */
-
 /*Chrome*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     input[type='range'] {

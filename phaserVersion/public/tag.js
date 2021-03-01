@@ -19,10 +19,10 @@ window.addEventListener('load', (event) => {
         }
     };
 
-    const tina = new Musician('tina', new Tone.Synth(), new Score(0))
-    const gina = new Musician('gina', new Tone.PolySynth(), new Score(-12))
-    const mina = new Musician('mina', new Tone.DuoSynth(), new Score(-24))
-    const lina = new Musician('lina', new Tone.FMSynth(), new Score(-12))
+    const tina = new Musician('tina', new Tone.Synth(), new Score(0), .15)
+    const gina = new Musician('gina', new Tone.PolySynth(), new Score(-12), .18)
+    const mina = new Musician('mina', new Tone.DuoSynth(), new Score(-24), .05)
+    const lina = new Musician('lina', new Tone.FMSynth(), new Score(-12), .10)
 
     const theInas = [tina, gina, mina, lina]
     const $mixer = document.getElementById('mixer')
@@ -35,7 +35,7 @@ window.addEventListener('load', (event) => {
         myInput.setAttribute('min', 0)
         myInput.setAttribute('max', .4)
         myInput.setAttribute('step', .005)
-        myInput.setAttribute('value', .15)
+        myInput.setAttribute('value', ina.volume)
         myInput.addEventListener('input', (event) => {
             const volume = event.target.value
             ina.setVolume(volume)
