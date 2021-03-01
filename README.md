@@ -11,7 +11,7 @@ If you've ever wanted conduct an ensemble of musicians, or its rough equivalent 
 
 ## Built With
 * Tone.js
-I have intentionally circumvented the transport pattern of Tone.js, and replaced it with a generator/timeout callback pattern so that eventually I can have the musicians fall out of sync if they haven't been herded in too long. 
+I have *knowingly and naughtily* circumvented the transport pattern of Tone.js, and replaced it with a generator/timeout callback pattern because to allow desyncronization and explore generators. 
 * Phaser.js
 * React.js
 ## next steps

@@ -1,8 +1,8 @@
 html, body {
     background: linear-gradient(335deg, green, #222);
-    /* redo blackish color and platform asset color */
+    /* TODO: redo blackish color and platform asset color */
     height: 100%;
-    /* when the canvas renders in the height is not being re-evaluated/reapplied */
+    /* TODO: when the canvas renders in the height is not being re-evaluated/reapplied */
     color: white;
     text-align: center;
     font-family: 'DotGothic16', sans-serif;
