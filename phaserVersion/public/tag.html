@@ -12,28 +12,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.10/Tone.js"
         integrity="sha512-yPhZJ8EqMJHkqIUwuKzvXNL9sMJ+p9ycHs+pVJ2RJtVJP5bJQBqCzjsLJL7hWe/Gna1mE824FzU3lKUfG4yEmw=="
         crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/tag.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <button id="start">Start</button>
-    <div id="parent"></div>
-    <div id="mixer"></div>
-    <h1> inC </h1>
-    <h2>About the Project</h2>
-    <p>*inC* is a minimalist composition by Terry Riley, where any number (Terry suggests 53) of performers of any kind
-        of instrument repeat each of 53 phrases many times as desired. In the context of covid-19 regulations
-        prohibiting performance, I am creating two UIs for a single individual to play this music.</p>
-    <h3>Composer Mode</h3>
-    <p>Composer view is a react UI where the user takes full control of starting, prodding, and mixing the musicians. I
-        eventually hope to add a backend for persisting musicians created by users.</p>
-    <h3>Phaser Game</h3>
-    If you've ever wanted conduct an ensemble of musicians, or its rough equivalent herd cats, this game is for you.
-    Presently you are a star that prods musicians to the next phrase by colliding with them. I hope to replace this stub
-    with a spritesheet of a walking conductor swinging a baton. Future additions may include pizza and beer, to attract
-    the musicians.
-    <h2>How to Play</h2>
-    <p>Press left to start Tone.js. Then collide with each player as the star to prod that player onto the next phrase.
-        Enjoy. Open the console if you want to see which phrase each musician is on. </p>
+    <div class="container">
+        <button id="start">Start</button>
+        <div id="advice"></div>
+        <div id="parent"></div>
+        <div id="mixer"></div>
+        <div id="info">
+            <h1> inC </h1>
+            <h2>About the Project</h2>
+            <p>
+                <span class='underlined'>inC </span>is a minimalist composition by Terry Riley, where any number
+                (Terry suggests 35) of
+                performers of
+                any
+                kind
+                of instrument repeat each of 53 phrases many times as desired. In the context of covid-19 regulations
+                prohibiting performance, I am creating two UIs for a single individual to play this music.
+            </p>
+            <h3>Composer Mode</h3>
+            <p>Composer view is a react UI where the user takes full control of starting, prodding, and mixing the
+                musicians. I
+                eventually hope to add a backend for persisting musicians created by users.</p>
+            <h3>Phaser Game</h3>
+            If you've ever wanted conduct an ensemble of musicians, or its rough equivalent herd cats, this game is for
+            you.
+            Presently you are a star that prods musicians to the next phrase by colliding with them. I hope to replace
+            this
+            stub
+            with a spritesheet of a walking conductor swinging a baton. Future additions may include pizza and beer, to
+            attract
+            the musicians.
+            <h2>How to Play</h2>
+            <p>Press left to start Tone.js. Then collide with each player as the star to prod that player onto the next
+                phrase.
+                Enjoy. Open the console if you want to see which phrase each musician is on. </p>
+        </div>
+    </div>
 
     <script src="/Score.js"></script>
     <script src="/AbstractMusician.js"></script>

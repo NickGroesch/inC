@@ -1,0 +1,68 @@
+html, body {
+    background: linear-gradient(335deg, green, #222);
+    /* redo blackish color and platform asset color */
+    height: 100%;
+    /* when the canvas renders in the height is not being re-evaluated/reapplied */
+    color: white;
+    text-align: center;
+    font-family: 'DotGothic16', sans-serif;
+}
+.container {
+    max-width: 800px;
+}
+button#start {
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 16px;
+    color: green;
+    background: black;
+    transition: hover 0.2s;
+    border-radius: 5px;
+    font-weight: 700;
+}
+button#start:hover {
+    color:black;
+    background-color:green;
+}
+.underlined {
+    text-decoration: underline;
+}
+/* https://stackoverflow.com/questions/18389224/how-to-style-html5-range-input-to-have-different-color-before-and-after-slider */
+
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      width: 80px;
+      -webkit-appearance: none;
+      background-color: #00000000;
+      /* having backgounrd transparent is cool, but does it confuse the user? */
+    }
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: black;
+      margin-top: -1px;
+    }
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: ew-resize;
+      background: black;
+      box-shadow: -80px 0 0 80px green;
+    }
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: green; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color: black;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: green; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color: black;
+}

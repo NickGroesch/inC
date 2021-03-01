@@ -17,17 +17,17 @@ class Musician {
         this.ready = true;
         this.readyTO = null;
         this.delayProd = 2500; // how long before you can prod again
-        this.ui=null; //placeholder to send back dom updates
+        this.ui = null; //placeholder to send back dom updates
 
     }
-} 
+}
 
 Musician.prototype.notToHurry = function () {
     this.ready = false
     this.readyTO = setTimeout(() => {
         this.ready = true
     }, this.delayProd)
-    }
+}
 
 Musician.prototype.doNote = function (quittingSoon) {
     //might be nice to make quittingSoon finish phrase
@@ -39,15 +39,15 @@ Musician.prototype.doNote = function (quittingSoon) {
 
     const genRes = this.score.phrases[this.phrase].gen.next(quittingSoon)
     if (!genRes.done) {
-        const {pitch, duration    } = genRes.value
+        const { pitch, duration } = genRes.value
         this.instrument.triggerAttackRelease(pitch, duration * this.scale, now())
         const scaledToMs = duration * this.scale * 1000
         this.TO = setTimeout(
-        (helper, willQuit) => { //params
-        helper.apply(this, [willQuit])
+            (helper, willQuit) => { //params
+                helper.apply(this, [willQuit])
             },
-        scaledToMs,
-        this.doNote, quittingSoon); //args
+            scaledToMs,
+            this.doNote, quittingSoon); //args
     } else {
         console.log(`${this.name} is moving on from ${this.phrase}`)
         this.phrase++
@@ -55,7 +55,6 @@ Musician.prototype.doNote = function (quittingSoon) {
 }
 
 Musician.prototype.setVolume = function (gain) {
-    console.log(typeof gain)
     gain = parseFloat(gain)
     this.gainNode.gain.rampTo(gain, .1)
 }

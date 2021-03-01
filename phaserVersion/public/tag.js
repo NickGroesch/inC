@@ -1,7 +1,5 @@
 window.addEventListener('load', (event) => {
 
-
-
     let config = {
         parent: 'parent',
         type: Phaser.AUTO,
@@ -21,8 +19,6 @@ window.addEventListener('load', (event) => {
         }
     };
 
-    let unstarted = true
-
     const tina = new Musician('tina', new Tone.Synth(), new Score(0))
     const gina = new Musician('gina', new Tone.PolySynth(), new Score(-12))
     const mina = new Musician('mina', new Tone.DuoSynth(), new Score(-24))
@@ -31,25 +27,6 @@ window.addEventListener('load', (event) => {
     const theInas = [tina, gina, mina, lina]
     const $mixer = document.getElementById('mixer')
 
-    // for (ina of theInas) {
-    //     //const fragment = document.createDocumentFragment()
-    //     const myP = document.createElement('p')
-    //     myP.textContent = ina.name
-    //     const myInput = document.createElement('input')
-    //     myInput.setAttribute('type', 'range')
-    //     myInput.setAttribute('min', '')
-    //     myInput.setAttribute('max', '.95')
-    //     myInput.setAttribute('step', '.005')
-    //     myInput.setAttribute('value', '.15')
-    //     myInput.addEventListener('input', (event) => {
-    //         console.log(ina)
-    //         const volume = event.target.value
-    //         ina.setVolume(volume)
-    //     })
-    //     myP.appendChild(myInput)
-    //     $mixer.append(myP)
-    //     //i am always getting the last ina 
-    // }
     theInas.forEach(ina => {
         const myP = document.createElement('p')
         myP.textContent = ina.name
@@ -60,7 +37,6 @@ window.addEventListener('load', (event) => {
         myInput.setAttribute('step', .005)
         myInput.setAttribute('value', .15)
         myInput.addEventListener('input', (event) => {
-            console.log(ina)
             const volume = event.target.value
             ina.setVolume(volume)
         })
@@ -78,11 +54,16 @@ window.addEventListener('load', (event) => {
 
     let platforms;
     let cursors;
+
+    //start button starts the game
     document.getElementById('start').addEventListener("click", event => {
         event.preventDefault()
         Tone.start()
         startGame()
+        document.getElementById('start').style.display = 'none';
+        document.getElementById('info').style.display = 'none';
     })
+    let unstarted = true // this flag starts musicians
 
     function startGame() {
         let game = new Phaser.Game(config, 'game');
