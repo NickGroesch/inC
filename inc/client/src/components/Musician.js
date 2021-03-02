@@ -11,17 +11,17 @@ export default function Musician({ name, synth, transpose, gain }) {
         return new AbstractMusician(name, synth, new Score(transpose), gain)
     }, [name, synth, transpose, gain])
 
-    const timeOuts = () => {
-        const tOs = [10, 100, 1000]
-        const printTO = function (TO) {
-            console.log(TO)
-        }
-        tOs.forEach(tO => wrapInTimeOut(printTO, tO))
-    }
+    // const timeOuts = () => {
+    //     const tOs = [10, 100, 1000]
+    //     const printTO = function (TO) {
+    //         console.log(TO)
+    //     }
+    //     tOs.forEach(tO => wrapInTimeOut(printTO, tO))
+    // }
 
-    const wrapInTimeOut = function (func, tOut) {
-        return setTimeout(() => func(tOut), tOut)
-    }
+    // const wrapInTimeOut = function (func, tOut) {
+    //     return setTimeout(() => func(tOut), tOut)
+    // }
 
     const handleVolume = newVolume => {
         console.log('handle vol', musician.name, newVolume)
@@ -30,9 +30,8 @@ export default function Musician({ name, synth, transpose, gain }) {
         musician.setVolume(parsedVolume)
 
     }
-    //show phraseNum=> not getting 2nd image but others
     return (<div style={{ width: '20%', float: 'left' }}>
-        <div onClick={() => timeOuts()}>{musician.name || "nobody"} {onPhrase}</div>
+        <div>{musician.name || "nobody"} {onPhrase}</div>
         {isPlaying ?
             <p onClick={() => {
                 if (musician.ready) {

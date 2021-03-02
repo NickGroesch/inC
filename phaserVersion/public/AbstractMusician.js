@@ -38,6 +38,7 @@ class Musician {
 }
 
     const genRes = this.score.phrases[this.phrase].gen.next(quittingSoon)
+    
     if (!genRes.done) {
     const {
     pitch, duration

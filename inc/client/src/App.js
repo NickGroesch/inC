@@ -31,32 +31,6 @@ function App() {
   //   console.log('GOG');
   // }
 
-
-  // const theInas = [
-  //   {
-  //     name: 'tina',
-  //     synth: Tone.Synth(),
-  //     tasnpose: 0
-  //   },
-  //   {
-  //     name: 'gina',
-  //     synth: Tone.PolySynth(),
-  //     tasnpose: -24
-  //   },
-  //   {
-  //     name: 'mina',
-  //     synth: Tone.DuoSynth(),
-  //     tasnpose: 12
-  //   },
-  //   {
-  //     name: 'lina',
-  //     synth: Tone.FMSynth(),
-  //     tasnpose: -12
-  //   }
-  // ]
-
-
-  //TODO debouncing
   //TODO add better instruments and transposition
   return (
     <div className="App">

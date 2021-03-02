@@ -4173,6 +4173,11 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
+easy-google-oauth@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/easy-google-oauth/-/easy-google-oauth-1.0.9.tgz#580704b543557252cb1a1b7cbc9d925d63861c42"
+  integrity sha512-L4q5g3iqvXqKZ8tR4P/iSrtvOSNEvGsAAZmO/VQ3Z3atek+30XVaaFXeVgMnsrE8fxts27C5jSFDod52eOLj0Q==
+
 ecc-jsbn@~0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"
