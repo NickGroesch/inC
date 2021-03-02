@@ -1,4 +1,4 @@
-//[pitch,duration]
+//notes are [pitch,duration]
 //pitch is measured in MIDI
 //duration is measured in muxels. TR uses the 16th note as smallest (but also grace note) so we'll reckon 32nd a muxel
 const phrase1 = [
@@ -18,13 +18,11 @@ const phrase4 = [
 const phrase5 = [
     [64, 4], [65, 4], [67, 4], [null, 4]
 ]
-const phrase6 = [[72, 64]]
+const phrase6 = [
+    [72, 64]
+]
 const phrase7 = [
-    [null, 28],
-    [60, 2],
-    [60, 2],
-    [60, 4],
-    [null, 36]
+    [null, 28], [60, 2], [60, 2], [60, 4], [null, 36]
 ]
 const phrase8 = [
     [67, 24], [65, 48]
@@ -121,6 +119,101 @@ const phrase28 = [
     [64, 2], [66, 2],
     [64, 6], [64, 2]
 ]
+const phrase29 = [
+    [64, 24],
+    [67, 24],
+    [72, 24]
+]
+const phrase30 = [
+    [72, 48]
+]
+const phrase31 = [
+    [67, 2], [65, 2], [67, 2],
+    [71, 2], [65, 2], [71, 2]
+]
+const phrase32 = [
+    [65, 2], [67, 2], [65, 2],
+    [67, 2], [71, 2], [65, 26], [67, 12]
+]
+const phrase33 = [
+    [67, 2], [65, 2], [null, 4]
+]
+const phrase34 = [
+    [67, 2], [65, 2]
+]
+const phrase35 = [
+    [65, 2], [67, 2], [71, 2], [67, 2],
+    [71, 2], [67, 2], [71, 2], [67, 2],
+    [71, 2], [67, 2], [null, 28],
+    [72, 8], [79, 24],
+    [81, 4], [79, 8], [83, 4],
+    [81, 14], [79, 8], [76, 24],
+    [79, 4], [78, 28], [null, 20], [76, 20], [77, 48]
+]
+const phrase36 = [
+    [65, 2], [67, 2], [71, 2], [67, 2], [71, 2], [67, 2]
+]
+const phrase37 = [
+    [65, 2], [67, 2]
+]
+const phrase38 = [
+    [65, 2], [67, 2], [71, 2]
+]
+const phrase39 = [
+    [71, 2], [67, 2],
+    [65, 2], [67, 2], [71, 2], [72, 2]
+]
+const phrase40 = [
+    [71, 2], [65, 2]
+]
+const phrase41 = [
+    [71, 2], [67, 2]
+]
+const phrase42 = [
+    [72, 32], [71, 32], [69, 32], [72, 32]
+]
+const phrase43 = [
+    [77, 2], [76, 2],
+    [77, 2], [76, 2],
+    [76, 4], [76, 4],
+    [76, 4], [77, 2], [76, 2]
+]
+const phrase44 = [
+    [77, 4], [76, 8],
+    [76, 4], [72, 8]
+]
+const phrase45 = [
+    [74, 8], [74, 8],
+    [67, 8]
+]
+const phrase46 = [
+    [67, 2], [74, 2], [76, 2], [74, 2],
+    [null, 4], [67, 4],
+    [null, 4], [67, 4],
+    [null, 4], [67, 4],
+    [67, 2], [74, 2], [76, 2], [74, 2]
+]
+const phrase47 = [
+    [74, 2], [76, 2], [74, 4]
+]
+const phrase48 = [
+    [67, 48], [67, 32], [65, 40]
+]
+const phrase49 = [
+    [65, 2], [67, 2], [70, 2], [67, 2], [70, 2], [67, 2]
+]
+const phrase50 = [
+    [65, 2], [67, 2]
+]
+const phrase51 = [
+    [65, 2], [67, 2], [70, 2]
+]
+const phrase52 = [
+    [67, 2], [70, 2]
+]
+const phrase53 = [
+    [70, 2], [67, 2]
+]
 const phrases = [
     phrase1,
     phrase2,
@@ -149,7 +242,32 @@ const phrases = [
     phrase25,
     phrase26,
     phrase27,
-    phrase28
+    phrase28,
+    phrase29,
+    phrase30,
+    phrase31,
+    phrase32,
+    phrase33,
+    phrase34,
+    phrase35,
+    phrase36,
+    phrase37,
+    phrase38,
+    phrase39,
+    phrase40,
+    phrase41,
+    phrase42,
+    phrase43,
+    phrase44,
+    phrase45,
+    phrase46,
+    phrase47,
+    phrase48,
+    phrase49,
+    phrase50,
+    phrase51,
+    phrase52,
+    phrase53,
 ]
 //TODO 29-53
 

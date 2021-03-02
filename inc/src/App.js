@@ -60,28 +60,6 @@ function App() {
   //TODO add better instruments and transposition
   return (
     <div className="App">
-      <Musician name="tina"
-        synth={new Tone.Synth()
-          // .toDestination()
-        }
-        transpose={0}></Musician>
-      <Musician name="gina"
-        synth={new Tone.PolySynth()
-          // .toDestination()
-        }
-        transpose={-12}></Musician>
-      <Musician name="mina"
-        synth={new Tone.DuoSynth()
-          // .toDestination()
-        }
-        transpose={24}></Musician>
-      <Musician name="lina"
-        synth={new Tone.FMSynth()
-          // .toDestination()
-        }
-        transpose={0}></Musician>
-
-
       <Pit></Pit>
       <Hiring></Hiring>
       <header className="App-header">
