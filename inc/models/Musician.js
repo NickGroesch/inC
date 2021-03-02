@@ -41,7 +41,6 @@ module.exports = function (sequelize, DataTypes) {
             //optionally
         })
     };
-
     return Post;
 };
 
