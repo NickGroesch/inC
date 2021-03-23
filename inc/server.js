@@ -5,11 +5,13 @@ const session = require("express-session");
 const passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
+const morgan = require("morgan")
+app.use(morgan("dev"))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("client/build"));
