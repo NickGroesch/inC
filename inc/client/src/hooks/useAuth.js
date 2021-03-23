@@ -1,16 +1,6 @@
-// Hook (use-auth.js)// FROM https://usehooks.com/useAuth/
+// Hook (use-auth.js)//  ADAPTED FROM https://usehooks.com/useAuth/
 import React, { useState, useEffect, useContext, createContext } from "react";
 import UserAPI from "../utils/UserAPI";
-// import * as firebase from "firebase/app";
-// import "firebase/auth";
-
-// // Add your Firebase credentials
-// firebase.initializeApp({
-//     apiKey: "",
-//     authDomain: "",
-//     projectId: "",
-//     appID: ""
-// });
 
 const authContext = createContext();
 
@@ -31,8 +21,6 @@ export const useAuth = () => {
 function useProvideAuth() {
     const [user, setUser] = useState(null);
 
-    // Wrap any Firebase methods we want to use making sure ...
-    // ... to save the user to state.
     const logIn = ({ email, password }) => {
         return UserAPI.logIn({
             email: email,
@@ -66,6 +54,7 @@ function useProvideAuth() {
                 setUser(false);
             });
     };
+
     //ICEBOX
     // const sendPasswordResetEmail = email => {
     //     return firebase

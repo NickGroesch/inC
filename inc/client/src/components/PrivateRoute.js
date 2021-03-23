@@ -2,6 +2,8 @@ import { use } from "passport"
 import { Component } from "react"
 import { Route, Redirect } from "react-router-dom"
 import { useAuth } from "../hooks/useAuth"
+import ROUTES from "../ROUTES"
+
 
 export default function PrivateRoute({ children, ...rest }) {
     const auth = useAuth()
@@ -10,7 +12,7 @@ export default function PrivateRoute({ children, ...rest }) {
             return auth.user
                 ? children
                 : <Redirect to={{ //Declarative routing
-                    pathname: '/login',
+                    pathname: ROUTES.LOGIN,
                     state: { from: location }
                 }}
                 />

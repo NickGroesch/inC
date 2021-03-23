@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom"
 import UserAPI from "../utils/UserAPI"
 import { ProvideAuth, useAuth } from "../hooks/useAuth"
+import ROUTES from "../ROUTES"
+
+
 export default function SignUp() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -18,7 +21,7 @@ export default function SignUp() {
                 password: password
             })
             console.log(sponse)
-            history.push("login") //Imperative routing
+            history.push(ROUTES.LOGIN) //Imperative routing
         } catch (err) { //this is only network error, not server error
             console.error(err)
         }

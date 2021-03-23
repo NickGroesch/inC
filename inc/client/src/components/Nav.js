@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import { useAuth } from "../hooks/useAuth.js";
+import ROUTES from "../ROUTES"
 
 export default function Nav(props) {
     // Get auth state and re-render anytime it changes
@@ -17,7 +18,7 @@ export default function Nav(props) {
                         <button onClick={() => auth.logOut()}>Signout</button>
                     </>
                 ) : (
-                    <Link to="/login">Login</Link>
+                    <Link to={ROUTES.LOGIN}>Login</Link>
                 )
             }
         </>

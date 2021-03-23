@@ -3,6 +3,8 @@ import UserAPI from "../utils/UserAPI"
 import { useHistory } from "react-router-dom"
 import { useAuth } from "../hooks/useAuth"
 import useQuery from "../hooks/useQuery"
+import ROUTES from "../ROUTES"
+
 
 export default function LogIn() {
 
@@ -26,7 +28,7 @@ export default function LogIn() {
                 password: password
             })
             if (sponse.ok) console.log("login success", sponse)
-            history.push("/main")
+            history.push(ROUTES.APPLICATION)
         } catch (err) { //this is only network error, not server error
             console.log(err)
         }

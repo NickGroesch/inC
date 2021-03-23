@@ -35,7 +35,7 @@ export default {
         },
         );
     },
-    logOut: function () {
+    logOut: function () {//depends on server session
         return fetch("/api/user/logout", {
             method: "GET",
             mode: 'cors',
