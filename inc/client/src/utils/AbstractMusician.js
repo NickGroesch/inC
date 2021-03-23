@@ -1,4 +1,4 @@
-import { Gain, now } from "tone"
+import { Gain, now, PanVol } from "tone"
 const bpmToMilliseconds = beatsPerMinute => beatsPerMinute * 1000 / 60
 
 class Musician {
@@ -7,11 +7,16 @@ class Musician {
         this.score = score
         this.phrase = 0
         this.instrument = synth;
+
         //this.channel = new Tone.Channel(-16).toMaster()
         //this.instrument.connect(this.channel)
         this.volume = gain // [0-1] 1 is really loud, .15 is good start
-        this.gainNode = new Gain(this.volume).toDestination();
-        this.instrument.connect(this.gainNode)
+        //this.gainNode = new Gain(this.volume)//.toDestination();
+
+        this.panVol = new PanVol(Math.random() * 2 - 1, -24)
+        this.panVol.toDestination()
+        //this.gainNode.connect(this.panVol)
+        this.instrument.connect(this.panVol)
         this.scale = .082;// tempo of 32nd Note in seconds
         this.TO = null;
         this.ready = true;
@@ -57,8 +62,10 @@ Musician.prototype.doNote = function (quittingSoon) {
 }
 
 Musician.prototype.setVolume = function (gain) {
-    this.gainNode.gain.rampTo(gain, 0.1)
-    setTimeout(() => console.log(this.gainNode.gain.value), 200)
+    //this.gainNode.gain.rampTo(gain, 0.1)
+    console.log("HERE")
+    this.panVol.set({ volume: gain })
+    //setTimeout(() => console.log(this.gainNode.gain.value), 200)
 }
 
 export default Musician
