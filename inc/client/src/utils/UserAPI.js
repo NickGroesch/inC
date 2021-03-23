@@ -8,7 +8,13 @@ export default {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data),
-        }).then(response => response.json());
+        }).then(response => {
+            console.log('userAPi', response)
+
+            return response.json()
+            //return response.ok ? response.json() : ""
+        }
+        );
     },
     logIn: function (data) {
         return fetch("/api/user/login", {

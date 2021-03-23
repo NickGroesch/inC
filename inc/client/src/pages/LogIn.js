@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import UserAPI from "../utils/UserAPI"
+import { useAuth } from "../hooks/useAuth"
 import useQuery from "../hooks/useQuery"
 
 export default function LogIn() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const provideAuth = useAuth()
 
     const query = useQuery()
     const itFailed = query.get("fail")
@@ -16,12 +18,11 @@ export default function LogIn() {
         console.log("username is " + email);
         console.log("password is " + password);
         try {
-            const sponse = await UserAPI.logIn({
+            const sponse = await provideAuth.logIn({
                 email: email,
                 password: password
             })
-            console.log(sponse)
-
+            if (sponse.ok) console.log("login success", sponse)
         } catch (err) { //this is only network error, not server error
             console.log(err)
         }

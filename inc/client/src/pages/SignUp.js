@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
 import UserAPI from "../utils/UserAPI"
+import { ProvideAuth, useAuth } from "../hooks/useAuth"
 export default function SignUp() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const provideAuth = useAuth()
     //useEffect to check for cookie to suggest already has account
     const handleSubmit = async event => {
         event.preventDefault();
         console.log("username is " + email);
         console.log("password is " + password);
         try {
-            const sponse = await UserAPI.signUp({
+            const sponse = await provideAuth.signUp({
                 email: email,
                 password: password
             })
             console.log(sponse)
+
         } catch (err) { //this is only network error, not server error
             console.error(err)
         }
