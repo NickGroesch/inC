@@ -12,8 +12,9 @@ export default function Nav(props) {
             {
                 auth.user ? (
                     <>
-                        <Link to="/account">Account ({auth.user.email})</Link>
-                        <button onClick={() => auth.signout()}>Signout</button>
+                        {/* <Link to="/account">Account ({auth.user.email})</Link> */}
+                        <span>Hi {auth.user.email}</span>
+                        <button onClick={() => auth.logOut()}>Signout</button>
                     </>
                 ) : (
                     <Link to="/login">Login</Link>

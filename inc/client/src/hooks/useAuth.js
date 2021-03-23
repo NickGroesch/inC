@@ -59,14 +59,13 @@ function useProvideAuth() {
             });
     };
 
-    // const signout = () => {
-    //     return firebase
-    //         .auth()
-    //         .signOut()
-    //         .then(() => {
-    //             setUser(false);
-    //         });
-    // };
+    const logOut = () => {
+        return UserAPI
+            .logOut()
+            .then(() => {
+                setUser(false);
+            });
+    };
     //ICEBOX
     // const sendPasswordResetEmail = email => {
     //     return firebase
@@ -108,7 +107,7 @@ function useProvideAuth() {
         user,
         logIn,
         signUp,
-        //signout,
+        logOut,
         // sendPasswordResetEmail,
         // confirmPasswordReset
     };

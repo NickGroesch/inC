@@ -35,5 +35,13 @@ export default {
         },
         );
     },
-    //logout: function () { }
+    logOut: function () {
+        return fetch("/api/user/logout", {
+            method: "GET",
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+    }
 };
