@@ -1,4 +1,4 @@
-import { Redirect } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 export default {
     signUp: function (data) {
         return fetch("/api/user/signup", {

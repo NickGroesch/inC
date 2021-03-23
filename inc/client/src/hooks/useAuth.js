@@ -27,21 +27,18 @@ function useProvideAuth() {
             password: password
         })
             .then(response => {
-                console.log("LOGin sponse", response)
                 setUser(response);
                 return response;
             });
     };
 
     const signUp = ({ email, password }) => {
-        console.log("USEsignup")
         return UserAPI
             .signUp({
                 email: email,
                 password: password
             })
             .then(response => {
-                console.log("USEsignup sponse", response)
                 // setUser(response.user);
                 return response;
             });

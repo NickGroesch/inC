@@ -20,14 +20,12 @@ export default function LogIn() {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        console.log("username is " + email);
-        console.log("password is " + password);
         try {
             const sponse = await provideAuth.logIn({
                 email: email,
                 password: password
             })
-            if (sponse.ok) console.log("login success", sponse)
+            // if (sponse.ok) //Id have to pass this down from higher up the promise chain
             history.push(ROUTES.APPLICATION)
         } catch (err) { //this is only network error, not server error
             console.log(err)
@@ -39,7 +37,7 @@ export default function LogIn() {
             {failedBool ? <h2>that won't do dud</h2> : <h1>Log in dude</h1>}
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="exampleInputEmail1">Email address</label>
+                    <label htmlFor="InputEmail">Email address</label>
                     <input
                         type="email"
                         id="email-input"
@@ -49,7 +47,7 @@ export default function LogIn() {
                     />
                 </div>
                 <div>
-                    <label htmlFor="exampleInputPassword1">Password</label>
+                    <label htmlFor="InputPassword">Password</label>
                     <input
                         type="password"
                         id="password-input"

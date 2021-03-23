@@ -1,0 +1,20 @@
+<form>
+    <label for="moniker"></label>
+    <input type="text" name="moniker" i d="musician-moniker" placeholder="jimiHendrix" value={moniker}
+        onchange={e=>setMoniker(e.target.value)}
+    >
+    <label for="gain"></label>
+    <input type="range" min={0} max={.4} step={.005} name="gain" i d="musician-gain" placeholder="jimiHendrix"
+        value={gain} onchange={e=>setGain(e.target.value)}
+    >
+    <label for="transpose"></label>
+    <input type="range" min={-36} max={24} step={1} name="transpose" i d="musician-transpose" placeholder="jimiHendrix"
+        value={transpose} onchange={e=>setTranspose(e.target.value)}
+    >
+
+    <label for="shared"></label>
+    <input type="checkbox" name="shared" i d="musician-shared" placeholder="jimiHendrix" value={shared}
+        onchange={e=>setShared(e.target.value)}
+    >
+
+</form>

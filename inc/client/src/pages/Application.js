@@ -33,22 +33,13 @@ function Application() {
   //TODO add better instruments and transposition
   return (
     <div className="App">
+      <p>
+        press <code onClick={() => startToneJs()}>HERE!</code> to start Tone.js
+        </p>
       <Pit></Pit>
       <Hiring></Hiring>
-      <header className="App-header">
-        <p>
-          press <code onClick={() => startToneJs()}>HERE!</code> to start Tone.js
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Play Music!
-        </a>
 
-      </header>
+
     </div>
   );
 }
