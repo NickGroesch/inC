@@ -1,4 +1,4 @@
-import {Gain, now} from "tone"
+import { Gain, now } from "tone"
 const bpmToMilliseconds = beatsPerMinute => beatsPerMinute * 1000 / 60
 
 class Musician {
@@ -57,7 +57,8 @@ Musician.prototype.doNote = function (quittingSoon) {
 }
 
 Musician.prototype.setVolume = function (gain) {
-    this.gainNode.gain.rampTo(gain, .1)
+    this.gainNode.gain.rampTo(gain, 0.1)
+    setTimeout(() => console.log(this.gainNode.gain.value), 200)
 }
 
 export default Musician

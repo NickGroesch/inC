@@ -41,7 +41,7 @@ export default function Musician({ name, synth, transpose, gain }) {
             }}>prod</p> :
             <p onClick={() => { musician.doNote(); setIsPlaying(true) }}>play</p>
         }
-        <p><input type="range" min={0} max={.4} step={.005} value={volume} onChange={(x) => handleVolume(x.target.value)} /></p>
+        <p><input type="range" min={0.0000001} max={.4} step={.005} value={volume} onChange={(x) => handleVolume(x.target.value)} /></p>
         <img src={"/static/ph" + onPhrase + ".png"}></img>
     </div>
     )

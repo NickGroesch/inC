@@ -9,35 +9,22 @@ import * as Tone from "tone"
 
 function Application() {
 
-  const [myMusician, setMyMusician] = useState({ name: "nobody" })
-  useEffect(() => {
-
-  }, [])
+  const [orchestra, setOrchestra] = useState([{ name: "nobody", synth: "AMSynth", gain: .08, transpose: 0 }])
 
   const startToneJs = () => {
     Tone.start()
   }
-  // const googleLoginSuccess = (res) => {
-  //   console.log("GIS", res);
-  // }
-  // const googleLoginFailure = (res) => {
-  //   console.log("GIF", res);
-  // }
-  // const googleLogoutSuccess = () => {
-  //   console.log('GOS')
-  // }
-  // const googleLogoutFailure = () => {
-  //   console.log('GOG');
-  // }
-
-  //TODO add better instruments and transposition
+  const makeNoob = noob => {
+    console.log('making noob in stateful container')
+    setOrchestra([...orchestra, noob])
+  }
   return (
     <div className="App">
       <p>
         press <code onClick={() => startToneJs()}>HERE!</code> to start Tone.js
         </p>
-      <Pit></Pit>
-      <Hiring></Hiring>
+      <Pit players={orchestra}></Pit>
+      <Hiring makeNoob={makeNoob} ></Hiring>
 
 
     </div>

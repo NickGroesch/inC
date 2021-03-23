@@ -29,9 +29,9 @@ const generalOptions = {//https://tonejs.github.io/docs/r12/AMSynth
 const optionsBySynth = {//the old docs have default options objects!
     AMSynth: [
         generalOptions.harmonicity,
-        generalOptions.harmonicity,
-        generalOptions.harmonicity,
-        generalOptions.harmonicity,
+        generalOptions.portamento,
+        generalOptions.detune,
+        generalOptions.oscillator,
     ]
 }
 
