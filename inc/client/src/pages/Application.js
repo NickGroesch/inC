@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import './App.css';
+import '../App.css';
 import Musician from "../components/Musician"
 import Pit from "../components/Pit"
 import Hiring from "../components/Hiring"
-import logo from "./logo.svg"
 import * as Tone from "tone"
 // import GoogleOAuth from "easy-google-oauth";
 
@@ -37,7 +36,6 @@ function Application() {
       <Pit></Pit>
       <Hiring></Hiring>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           press <code onClick={() => startToneJs()}>HERE!</code> to start Tone.js
         </p>
@@ -47,16 +45,9 @@ function Application() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Play Music!
         </a>
-        {/* <GoogleOAuth
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          expirationHourMultiplier={1}
-          googleLoginSuccess={googleLoginSuccess}
-          googleLoginFailure={googleLoginFailure}
-          googleLogoutSuccess={googleLogoutSuccess}
-          googleLogoutFailure={googleLogoutFailure}
-        /> */}
+
       </header>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserAPI from "../utils/UserAPI"
+import { useHistory } from "react-router-dom"
 import { useAuth } from "../hooks/useAuth"
 import useQuery from "../hooks/useQuery"
 
@@ -8,6 +9,8 @@ export default function LogIn() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const provideAuth = useAuth()
+    const history = useHistory()
+
 
     const query = useQuery()
     const itFailed = query.get("fail")
@@ -23,6 +26,7 @@ export default function LogIn() {
                 password: password
             })
             if (sponse.ok) console.log("login success", sponse)
+            history.push("/main")
         } catch (err) { //this is only network error, not server error
             console.log(err)
         }
