@@ -1,22 +1,23 @@
 import { useState, useEffect } from 'react'
 import '../App.css';
-import Musician from "../components/Musician"
+import { start } from "tone"
+
+// import Musician from "../components/Musician"
 import Pit from "../components/Pit"
 import Hiring from "../components/Hiring"
-import * as Tone from "tone"
-// import GoogleOAuth from "easy-google-oauth";
 
 
 function Application() {
 
-  const [orchestra, setOrchestra] = useState([{ name: "nobody", synth: "AMSynth", gain: .08, transpose: 0 }])
+  const [orchestra, setOrchestra] = useState([{ name: "nobody", synth: "AMSynth", gain: .08, transpose: 0, index: "y" }])
+  const [started, setStarted] = useState(false)
 
   const startToneJs = () => {
-    Tone.start()
+    start()
   }
-  const makeNoob = noob => {
-    console.log('making noob in stateful container')
-    setOrchestra([...orchestra, noob])
+  const makeMusician = newPlayer => {
+    console.log('making newPlayer in stateful container')
+    setOrchestra([...orchestra, newPlayer])
   }
   return (
     <div className="App">
@@ -24,7 +25,7 @@ function Application() {
         press <code onClick={() => startToneJs()}>HERE!</code> to start Tone.js
         </p>
       <Pit players={orchestra}></Pit>
-      <Hiring makeNoob={makeNoob} ></Hiring>
+      <Hiring makeMusician={makeMusician} ></Hiring>
 
 
     </div>

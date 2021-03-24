@@ -1,9 +1,10 @@
 import { useState } from 'react'
+
 import ToneSynthOptionPicker from "./SynthOptionPicker"
 
-function Hiring({ makeNoob }) {
+function Hiring({ makeMusician }) {
     const [moniker, setMoniker] = useState("")
-    const [gain, setGain] = useState(.15)
+    const [gain, setGain] = useState(-12)
     const [transpose, setTranspose] = useState(0)
     const [itsPublic, setPublic] = useState(false)
     const [synth, setSynth] = useState("AMSynth")
@@ -22,7 +23,7 @@ function Hiring({ makeNoob }) {
             gain
         }
         console.log("easy bake musician oven engaged", newHire)
-        makeNoob(newHire)
+        makeMusician(newHire)
     };
 
     return (<div style={{ width: '20%', float: 'left' }}>
@@ -33,8 +34,8 @@ function Hiring({ makeNoob }) {
                 onChange={e => setMoniker(e.target.value)}
             />
             <label htmlFor="gain">Gain: {gain}</label>
-            <input type="range" min={0} max={.4} step={.005} name="gain" id="musician-gain"
-                value={gain} onChange={e => setGain(parseFloat(e.target.value))}
+            <input type="range" min={-240} max={36} step={1} name="gain" id="musician-gain"
+                value={gain} onChange={e => setGain(parseInt(e.target.value))}
             />
             <p>
 

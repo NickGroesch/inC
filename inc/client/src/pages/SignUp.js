@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom"
-import UserAPI from "../utils/UserAPI"
+
 import { ProvideAuth, useAuth } from "../hooks/useAuth"
+import UserAPI from "../utils/UserAPI"
 import ROUTES from "../ROUTES"
 
 
