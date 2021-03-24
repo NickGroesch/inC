@@ -10,14 +10,18 @@ export default function TheHelm(props) {
         destination.mute = !isMuted
         setMuted(!isMuted)
     }
+    const handleMainVolume = (volume) => {
+        destination.volume.rampTo(volume, 0.05)
+        setMainVolume(volume)
+    }
     return (<>
         <h1>THE HELM</h1>
         <VolumeSlider
             volume={mainVolume}
-            setVolume={setMainVolume}
-            min={-999}
-            max={36}
-            step={3}
+            setVolume={handleMainVolume}
+            min={-66}
+            max={12}
+            step={1}
         />
         <h1>volume {mainVolume}</h1>
         <button onClick={() => toggleMute()}>{isMuted ? "Unmute" : "Silence"}</button>

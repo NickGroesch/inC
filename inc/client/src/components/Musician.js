@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react'
 
 import AbstractMusician from "../utils/AbstractMusician"
 import Score from "../utils/Score"
+import VolumeSlider from "./VolumeSlider"
 
 export default function Musician({ name, synth, transpose, gain, uniqueIndex }) {
     const [isPlaying, setIsPlaying] = useState(false)
@@ -13,14 +14,13 @@ export default function Musician({ name, synth, transpose, gain, uniqueIndex }) 
         return new AbstractMusician(name, synth, new Score(transpose), gain)
     }, [name, synth, transpose, gain, uniqueIndex])//seems the addition of uniqueIndex to the deps array prevents reuse of same memo for to allow a different musician for the same 
 
-
     const handleVolume = newVolume => {
         console.log('handle vol', musician.name, newVolume)
-        const parsedVolume = parseFloat(newVolume)
-        setVolume(parsedVolume)
-        musician.setVolume(parsedVolume)
-
+        //const parsedVolume = parseFloat(newVolume)
+        musician.setVolume(newVolume)
+        setVolume(newVolume)
     }
+
     return (<div style={{ width: '25%', float: 'left' }}>
         <div>{musician.name || "nobody"} {onPhrase}</div>
         {isPlaying ?
@@ -32,7 +32,14 @@ export default function Musician({ name, synth, transpose, gain, uniqueIndex }) 
             }}>prod</p> :
             <p onClick={() => { musician.doNote(); setIsPlaying(true) }}>play</p>
         }
-        <p><input type="range" min={-120} max={24} step={1} value={volume} onChange={(e) => handleVolume(e.target.value)} /></p>
+        {/* <p><input type="range" min={-120} max={24} step={1} value={volume} onChange={(e) => handleVolume(e.target.value)} /></p> */}
+        <VolumeSlider
+            volume={volume}
+            setVolume={handleVolume}
+            min={-240}
+            max={36}
+            step={1}
+        />
         <img src={"/static/ph" + onPhrase + ".png"}></img>
     </div>
     )
