@@ -8,14 +8,14 @@ function Pit({ players }) {
 
     return (
         <div style={{ width: '80%', float: 'left' }}>
-            <VolumeSlider
+            {/* <VolumeSlider
                 volume={volume}
                 setVolume={setVolume}
-                min={-12000}
+                min={-999}
                 max={36}
                 step={3}
             />
-            <h1>volume {volume}</h1>
+            <h1>volume {volume}</h1> */}
             <Musician name="tina"
                 synth={new Tone.Synth()}
                 transpose={0}
@@ -38,7 +38,7 @@ function Pit({ players }) {
                 transpose={0} />
 
             {players.length ? players.map((player, index) => {
-                console.log(player)
+                // console.log(player)
                 return (<Musician
                     key={index}
                     index={index}

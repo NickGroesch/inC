@@ -5,6 +5,7 @@ import { start } from "tone"
 // import Musician from "../components/Musician"
 import Pit from "../components/Pit"
 import Hiring from "../components/Hiring"
+import TheHelm from "../components/TheHelm"
 
 
 function Application() {
@@ -21,6 +22,7 @@ function Application() {
   }
   return (
     <div className="App">
+      <TheHelm />
       <p>
         press <code onClick={() => startToneJs()}>HERE!</code> to start Tone.js
         </p>
