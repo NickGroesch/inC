@@ -25,47 +25,45 @@ class Musician {
         this.ui = null; //placeholder to send back dom updates
 
     }
-}
-
-Musician.prototype.notToHurry = function () {
-    this.ready = false
-    this.readyTO = setTimeout(() => {
-        this.ready = true
-    }, this.delayProd)
-}
-
-Musician.prototype.doNote = function (quittingSoon) {
-    //might be nice to make quittingSoon finish phrase
-    if (!quittingSoon) {
-        clearTimeout(this.TO)
-    } else {
-        this.notToHurry()
+    notToHurry = function () {
+        this.ready = false
+        this.readyTO = setTimeout(() => {
+            this.ready = true
+        }, this.delayProd)
     }
+    doNote = function (quittingSoon) {
+        //might be nice to make quittingSoon finish phrase
+        if (!quittingSoon) {
+            clearTimeout(this.TO)
+        } else {
+            this.notToHurry()
+        }
 
-    const genRes = this.score.phrases[this.phrase].gen.next(quittingSoon)
-    if (!genRes.done) {
-        const {
-            pitch, duration
-        } = genRes.value
-        this.instrument.triggerAttackRelease(pitch, duration * this.scale, now())
-        const scaledToMs = duration * this.scale * 1000
-        this.TO = setTimeout(
-            (helper, willQuit) => { //params
-                helper.apply(this, [willQuit])
-            },
-            scaledToMs,
-            this.doNote, quittingSoon); //args
-    } else {
-        //handleMoveOn
-        this.phrase++
+        const genRes = this.score.phrases[this.phrase].gen.next(quittingSoon)
+        if (!genRes.done) {
+            const {
+                pitch, duration
+            } = genRes.value
+            this.instrument.triggerAttackRelease(pitch, duration * this.scale, now())
+            const scaledToMs = duration * this.scale * 1000
+            this.TO = setTimeout(
+                (helper, willQuit) => { //params
+                    helper.apply(this, [willQuit])
+                },
+                scaledToMs,
+                this.doNote, quittingSoon); //args
+        } else {
+            //handleMoveOn
+            this.phrase++
+        }
+    }
+    setVolume = function (gain) {
+        console.log("setting vol of", this.name, " to ", gain)
+        this.panVol.set({ volume: gain })
     }
 }
 
-Musician.prototype.setVolume = function (gain) {
-    //this.gainNode.gain.rampTo(gain, 0.1)
-    console.log("HERE")
-    this.panVol.set({ volume: gain })
-    //setTimeout(() => console.log(this.gainNode.gain.value), 200)
-}
+
+
 
 export default Musician

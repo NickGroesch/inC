@@ -1,15 +1,15 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import AbstractMusician from "../utils/AbstractMusician"
 import Score from "../utils/Score"
 
-export default function Musician({ name, synth, transpose, gain }) {
+export default function Musician({ name, synth, transpose, gain, uniqueIndex }) {
     const [isPlaying, setIsPlaying] = useState(false)
     const [volume, setVolume] = useState(gain) // -100<=volume reduction in db<=0
     const [onPhrase, setOnPhrase] = useState(1) //1dexed for human readability
     //b/c I memoize the musician in order to preserve its identity/integrity, the render phase never reconsiders it's changed property values ergo useState
     const musician = useMemo(() => {
         return new AbstractMusician(name, synth, new Score(transpose), gain)
-    }, [name, synth, transpose, gain])
+    }, [name, synth, transpose, gain, uniqueIndex])//seems the addition of uniqueIndex to the deps array prevents reuse of same memo for to allow a different musician for the same 
 
     // const timeOuts = () => {
     //     const tOs = [10, 100, 1000]
@@ -30,7 +30,7 @@ export default function Musician({ name, synth, transpose, gain }) {
         musician.setVolume(parsedVolume)
 
     }
-    return (<div style={{ width: '20%', float: 'left' }}>
+    return (<div style={{ width: '25%', float: 'left' }}>
         <div>{musician.name || "nobody"} {onPhrase}</div>
         {isPlaying ?
             <p onClick={() => {
@@ -41,7 +41,7 @@ export default function Musician({ name, synth, transpose, gain }) {
             }}>prod</p> :
             <p onClick={() => { musician.doNote(); setIsPlaying(true) }}>play</p>
         }
-        <p><input type="range" min={-90} max={24} step={1} value={volume} onChange={(x) => handleVolume(x.target.value)} /></p>
+        <p><input type="range" min={-120} max={24} step={1} value={volume} onChange={(e) => handleVolume(e.target.value)} /></p>
         <img src={"/static/ph" + onPhrase + ".png"}></img>
     </div>
     )
