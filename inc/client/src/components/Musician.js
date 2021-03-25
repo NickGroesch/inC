@@ -3,10 +3,12 @@ import { useState, useEffect, useMemo, useCallback } from 'react'
 import AbstractMusician from "../utils/AbstractMusician"
 import Score from "../utils/Score"
 import VolumeSlider from "./VolumeSlider"
+import PanSlider from "./PanSlider"
 
 export default function Musician({ name, synth, transpose, gain, uniqueIndex }) {
     const [isPlaying, setIsPlaying] = useState(false)
-    const [volume, setVolume] = useState(gain) // -120<=volume reduction in db<=24
+    const [volume, setVolume] = useState(gain) // -Infinity<=volume reduction in db<=24
+    const [pan, setPan] = useState(0)
     const [onPhrase, setOnPhrase] = useState(1) //1dexed for human readability
 
     //b/c I memoize the musician in order to preserve its identity/integrity, the render phase never reconsiders it's changed property values ergo useState
@@ -40,6 +42,7 @@ export default function Musician({ name, synth, transpose, gain, uniqueIndex }) 
             max={36}
             step={1}
         />
+        <PanSlider pan={pan} setPan={setPan} />
         <img src={"/static/ph" + onPhrase + ".png"}></img>
     </div>
     )

@@ -7,7 +7,7 @@
 Composer view is a react UI where the user takes full control of starting, prodding, and mixing the musicians. I am adding a backend for persisting musicians created by users.
 
 ### Phaser Game
-If you've ever wanted conduct an ensemble of musicians, or its rough equivalent herd cats, this game is for you. Presently you are a star that prods musicians to the next phrase by colliding with them. I hope to replace this stub with a spritesheet of a walking conductor swinging a baton. Future additions may include pizza and beer, to attract the musicians.
+If you've ever wanted conduct an ensemble of musicians, or its rough equivalent shepherd a flock of felines, this game is for you. Presently you are a star that prods musicians to the next phrase by colliding with them. I hope to replace this star-stub with a spritesheet of a walking conductor aggressively swinging a baton. Future additions may include pizza and beer, to attract the musicians.
 
 ## Built With
 * Tone.js
@@ -15,7 +15,4 @@ I have *knowingly and naughtily* circumvented the transport pattern of Tone.js, 
 * Phaser.js
 * React.js
 ## next steps
-* master volume
-* add the rest of phrases
 * implement the ending
-* do we need a seperate pause function, or just faders?
