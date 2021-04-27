@@ -39,7 +39,7 @@ export default function Musician({ name, synth, transpose, gain, uniqueIndex }) 
             volume={volume}
             setVolume={handleVolume}
             min={-240}
-            max={36}
+            max={0}
             step={1}
         />
         <PanSlider pan={pan} setPan={setPan} />

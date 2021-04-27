@@ -20,7 +20,7 @@ export default function TheHelm(props) {
             volume={mainVolume}
             setVolume={handleMainVolume}
             min={-66}
-            max={12}
+            max={0}
             step={1}
         />
         <h1>volume {mainVolume}</h1>
