@@ -10,7 +10,9 @@ export default function PanSlider(props) {
             max={1}
             step={.1}
             value={pan}
-            onChange={e => { setPan(parseFloat(e.target.value)) }
+            onChange={e => {
+                setPan(parseFloat(e.target.value))//TODO:appears not to work
+            }
             } />
     </>)
 

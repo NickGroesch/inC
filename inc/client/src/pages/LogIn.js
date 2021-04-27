@@ -34,7 +34,7 @@ export default function LogIn() {
 
     return (
         <div>
-            {failedBool ? <h2>that won't do dud</h2> : <h1>Log in dude</h1>}
+            {failedBool ? <h2>Try again! </h2> : <h1>Log in!</h1>}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="InputEmail">Email address</label>

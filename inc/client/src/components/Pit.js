@@ -30,23 +30,45 @@ function Pit({ players }) {
                 synth={new Tone.DuoSynth()}
                 index="m"
                 gain={-48}
-                transpose={24} />
+                transpose={12} />
             <Musician name="lina"
                 index="l"
                 synth={new Tone.FMSynth()}
                 gain={-12}
                 transpose={0} />
-
+            <Musician name="bill"
+                synth={new Tone.Synth()}
+                transpose={-24}
+                index="b"
+                gain={0} />
+            <Musician name="phill"
+                synth={new Tone.PolySynth()}
+                index="p"
+                gain={-12}
+                transpose={-24} />
+            <Musician name="mcgill"
+                synth={new Tone.DuoSynth()}
+                index="c"
+                gain={-48}
+                transpose={-24} />
+            <Musician name="williamina ann marie mcPherson nee schmidt, ThD"
+                index="w"
+                synth={new Tone.FMSynth()}
+                gain={-12}
+                transpose={12} />
+            {/* 
             {players.length ? players.map((player, index) => {
                 // console.log(player)
                 return (<Musician
-                    key={index}
+                    key={player.name + index}//just the index DOES NOT SOLVE problem //https://coderwall.com/p/jdybeq/the-importance-of-component-keys-in-react-js
+                    //https://robinpokorny.medium.com/index-as-a-key-is-an-anti-pattern-e0349aece318
                     index={index}
                     name={player.name}
                     synth={new Tone[player.synth]()}
                     gain={player.gain}
                     transpose={player.transpose} />)
-            }) : ""}
+            }) : ""} 
+            */}
         </div >
     )
 }

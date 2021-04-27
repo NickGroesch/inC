@@ -29,7 +29,7 @@ export default function SignUp() {
     };
     return (
         <div>
-            <h1>sign up dude</h1>
+            <h1>sign up!</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="exampleInputEmail1">Email address</label>

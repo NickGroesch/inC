@@ -4,7 +4,7 @@ import VolumeSlider from "./VolumeSlider"
 
 export default function TheHelm(props) {
     const [isMuted, setMuted] = useState(false)
-    const [mainVolume, setMainVolume] = useState(0)
+    const [mainVolume, setMainVolume] = useState(-20)
     const destination = getDestination()
     const toggleMute = () => {
         destination.mute = !isMuted

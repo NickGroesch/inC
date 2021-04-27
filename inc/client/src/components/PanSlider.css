@@ -9,7 +9,7 @@
     input.pan[type='range']::-webkit-slider-runnable-track {
       height: 10px;
       -webkit-appearance: none;
-      color: red;
+      color: red; 
       margin-top: -1px;
     }
     input.pan[type='range']::-webkit-slider-thumb {
